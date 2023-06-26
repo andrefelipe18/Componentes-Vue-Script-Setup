@@ -1,4 +1,15 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+//Importa o mitt
+import mitt from 'mitt';
+
+//Cria uma instância do mitt
+const emitter = mitt();
+
+//Cria uma propriedade global para o mitt
+const app = createApp(App);
+
+app.config.globalProperties.emitter = emitter;
+
+app.mount('#app')
